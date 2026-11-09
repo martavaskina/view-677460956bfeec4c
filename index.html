@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>OKKO · QBR Q3 2026 · Bolt Food</title>
+<style>
+  :root {
+    --bg:#F3F4EF; --ink:#16181A; --muted:#5E675F; --line:#E2E5DC;
+    --card:#fff; --bolt:#34D186; --bolt-ink:#1F9E63; --cafe:#34D186; --market:#16382C;
+    --down:#B23B32; --up:#1F9E63;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  html, body { overflow-x:hidden; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Bolt Sans","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  a { color:inherit; text-decoration:none; }
+  .nav {
+    position:sticky; top:0; z-index:5; display:flex; gap:22px; align-items:center;
+    padding:14px 32px; background:rgba(243,244,239,.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line); font-size:13px; color:var(--muted);
+  }
+  .nav strong { color:var(--ink); font-weight:650; letter-spacing:.01em; }
+  .nav a:hover { color:var(--ink); }
+  .wrap { width:min(1120px, calc(100% - 48px)); margin:0 auto; }
+  header.hero { background:#121512; color:#F4F6F0; padding:72px 0 56px; }
+  .logo { width:72px; height:auto; display:block; flex-shrink:0; }
+  .hero-brand { display:flex; gap:28px; align-items:center; }
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:8px; color:#34D186;
+    font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  }
+  .eyebrow i { width:8px; height:8px; border-radius:50%; background:#34D186; display:inline-block; }
+  h1 {
+    margin:18px 0 12px; font-size:64px; line-height:1; letter-spacing:-.035em; font-weight:620;
+    text-align:left; white-space:nowrap;
+  }
+  .lede {
+    max-width:none; font-size:20px; line-height:1.45; color:#C9D0C6; margin:0;
+    text-align:left; white-space:nowrap;
+  }
+  .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:48px; }
+  .hero-col { border-top:1px solid rgba(255,255,255,.14); padding-top:18px; }
+  .hero-col .name { font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#34D186; font-weight:700; }
+  .big { font-size:56px; letter-spacing:-.04em; font-weight:620; line-height:1; margin:10px 0 4px; }
+  .unit { color:#C9D0C6; font-size:15px; }
+  .deltas { display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:14px; color:#E7ECDD; font-size:14px; }
+  .deltas b { font-weight:650; }
+  .deltas .up { color:#34D186; }
+  .deltas .down { color:#F0A8A0; }
+  td.up, b.up { color:var(--up); }
+  td.down, b.down { color:var(--down); }
+  .bench {
+    background:#fff; border-bottom:1px solid var(--line); padding:18px 0;
+    color:var(--muted); font-size:14px;
+  }
+  .bench b { color:var(--ink); font-weight:650; }
+  section { padding:72px 0; border-bottom:1px solid var(--line); }
+  h2.sec { font-size:42px; letter-spacing:-.035em; line-height:1.02; margin:0 0 8px; font-weight:650; }
+  h2.sec .num { color:#34D186; font-weight:720; margin-right:12px; }
+  p.sub { font-size:18px; line-height:1.35; color:#3A423C; font-weight:500; margin:0 0 14px; max-width:720px; }
+  .note { color:var(--muted); font-size:14px; max-width:760px; margin:0 0 22px; }
+  .split { display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:start; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px 22px 8px; max-width:100%; min-width:0; }
+  .legend { display:flex; gap:18px; align-items:center; font-size:13px; color:var(--muted); margin:0 0 8px; }
+  .legend em { font-style:normal; margin-left:auto; }
+  .legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:-1px; }
+  .lg-cafe::before, .lg-bolt::before { background:var(--bolt); } .lg-mkt::before { background:var(--market); }
+  .chart-card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.02em; font-weight:650; }
+  .charts { display:grid; gap:16px; }
+  .charts-pair { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; align-items:stretch; }
+  .charts-pair .chart-card h3 { font-size:17px; }
+  .chart { width:100%; height:auto; display:block; }
+  table { width:100%; border-collapse:collapse; font-size:14px; font-variant-numeric:tabular-nums; }
+  th { text-align:left; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:650; padding:10px 10px; border-bottom:1px solid var(--line); }
+  td { padding:12px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th.r, td.r { text-align:right; }
+  tr:last-child td { border-bottom:0; }
+  .scroll { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:18px; }
+  .scroll table { min-width:760px; }
+  .scroll th, .scroll td { padding-left:14px; padding-right:14px; }
+  .tag { font-size:12px; font-weight:700; letter-spacing:.04em; }
+  .tag.cafe { color:var(--bolt-ink); } .tag.market { color:var(--market); }
+  .insights { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:22px; }
+  .insight { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; }
+  .insight h3 { margin:0 0 6px; font-size:16px; letter-spacing:-.01em; }
+  .insight p { margin:0; color:#2C332E; font-size:14.5px; }
+  .stack { display:grid; gap:16px; }
+  .funnel { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 18px 16px; }
+  .step .n { font-size:12px; color:var(--bolt-ink); font-weight:750; letter-spacing:.08em; }
+  .step h3 { margin:6px 0 12px; font-size:18px; letter-spacing:-.02em; }
+  .pair { display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-top:1px solid var(--line); font-size:14px; }
+  .pair b { font-weight:650; }
+  .fx { font-size:13.5px; margin-top:4px; }
+  .fx th { padding:7px 6px; font-size:10px; }
+  .fx td { padding:9px 6px; }
+  .fx th.q3, .fx td.q3 { background:rgba(52,209,134,.12); }
+  .fx th.q3 { color:var(--bolt-ink); }
+  .fx td.q3 { font-weight:700; }
+  .fx tr.bmk-top td { border-top:2px solid var(--market); }
+  .fx td.bmk { color:var(--muted); font-weight:600; }
+  .fx td.na { color:var(--muted); }
+  .fx th.r, .fx td.r { white-space:nowrap; }
+  .actions { display:grid; gap:14px; }
+  .action { display:grid; grid-template-columns:72px 1fr; gap:16px; background:#fff; border:1px solid var(--line); border-radius:18px; padding:18px 20px; }
+  .action .num { font-size:28px; letter-spacing:-.04em; color:var(--bolt); font-weight:650; }
+  .hbar-block { background:#fff; border:1px solid var(--line); border-radius:18px; padding:18px 20px 8px; margin-bottom:16px; }
+  .hbar-block h3 { margin:0 0 4px; font-size:20px; letter-spacing:-.02em; }
+  .scale-note { margin:0 0 12px; color:var(--muted); font-size:13.5px; max-width:760px; }
+  .city-row { display:grid; grid-template-columns:188px 1fr; gap:12px; align-items:center; padding:8px 0; border-top:1px solid var(--line); }
+  .hbar-block .city-row:first-of-type { border-top:0; }
+  .city-name { font-size:13.5px; font-weight:650; text-align:right; line-height:1.25; }
+  .pair-bars { display:grid; gap:4px; }
+  .track { display:grid; grid-template-columns:1fr 56px; align-items:center; gap:8px; }
+  .meter { height:14px; }
+  .meter i { display:block; height:14px; border-radius:4px; min-width:3px; }
+  .meter i.cafe { background:var(--bolt); }
+  .meter i.mkt { background:var(--market); }
+  .track b { font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; }
+  details.cities { background:#fff; border:1px solid var(--line); border-radius:18px; margin-top:4px; }
+  details.cities summary { cursor:pointer; padding:16px 18px; font-weight:650; font-size:16px; list-style:none; }
+  details.cities summary::-webkit-details-marker { display:none; }
+  details.cities summary::before { content:"▸"; color:var(--bolt); margin-right:8px; }
+  details.cities[open] summary::before { content:"▾"; }
+  details.cities .scroll { border:0; border-radius:0; border-top:1px solid var(--line); }
+  .hbar-block.fold { border:0; border-radius:0; margin:0; padding:14px 20px 8px; border-top:1px solid var(--line); }
+  .action h3 { margin:0 0 4px; font-size:18px; }
+  .action p { margin:0; color:#2C332E; font-size:14.5px; }
+  footer { padding:28px 0 48px; color:var(--muted); font-size:12.5px; }
+  @media (max-width:860px) {
+    h1 { font-size:34px; } h2.sec { font-size:30px; } p.sub { font-size:16px; } .big { font-size:40px; }
+    .lede { font-size:16px; white-space:normal; }
+    .hero-brand { flex-direction:column; gap:16px; }
+    .city-row { grid-template-columns:112px 1fr; }
+    .card, .scroll { max-width:100%; min-width:0; }
+    .hero-grid, .split, .insights, .funnel, .charts-pair { grid-template-columns:1fr; }
+    .nav { display:none; }
+    .action { grid-template-columns:48px 1fr; }
+    section { padding:48px 0; }
+    .charts > .chart-card { overflow-x:auto; }
+    .charts > .chart-card .chart { width:960px; max-width:none; }
+  }
+  @media print {
+    .nav { display:none; }
+    header.hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    section { break-inside:avoid; padding:28px 0; }
+    .card, .insight, .step, .action, .scroll { break-inside:avoid; }
+    body { background:#fff; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <strong>OKKO · Q3 2026</strong>
+  <a href="#dynamics">Динаміка</a>
+  <a href="#formats">Формати</a>
+  <a href="#cities">Міста</a>
+  <a href="#promo">Промо</a>
+  <a href="#clients">Клієнти</a>
+  <a href="#ops">Сервіс</a>
+  <a href="#funnel">Воронка</a>
+  <a href="#next">Далі</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-brand">
+      <img class="logo" src="data:image/png;base64,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" alt="OKKO" width="72" height="94">
+      <div class="eyebrow"><i></i>QBR · 01.07.2026 – 30.09.2026 · Bolt Food</div>
+    </div>
+    <h1>OKKO CAFE і OKKO MARKET</h1>
+    <p class="lede">Кафе виросло швидше за ресторани Bolt Food в Україні. Маркет у цьому кварталі вийшов на мережу.</p>
+    <div class="hero-grid">
+      <div class="hero-col">
+        <div class="name">OKKO CAFE</div>
+        <div class="big">11 879</div>
+        <div class="unit">доставлених замовлень</div>
+        <div class="deltas">
+          <span><b class="up">+47.9%</b> до Q2</span>
+          <span><b class="up">+44.1%</b> рік до року</span>
+          <span>GMV <b>5,95 млн ₴</b></span>
+          <span>чек <b>501 ₴</b></span>
+        </div>
+      </div>
+      <div class="hero-col market">
+        <div class="name">OKKO MARKET</div>
+        <div class="big">3 795</div>
+        <div class="unit">доставлених замовлень · запуск</div>
+        <div class="deltas">
+          <span>липень <b>3</b> локації → вересень <b>195</b></span>
+          <span>GMV <b>1,97 млн ₴</b></span>
+          <span>чек <b>519 ₴</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="bench">
+  <div class="wrap">
+    Замовлення ресторанів Bolt Food в Україні: <b>+10.3% до Q2</b> і <b>+8.4% рік до року</b>.
+    Уся платформа в Україні: <b>+12.2%</b> і <b>+14.2%</b>.
+    Стори: <b>+43.6% до Q2</b> — темп OKKO MARKET із цим не зіставляємо, бази Q2 немає.
+  </div>
+</div>
+
+<section id="dynamics">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">01</span>Динаміка</h2>
+    <p class="sub">Кафе відірвалось від ринку влітку</p>
+    <div class="charts-pair">
+      <div class="card chart-card">
+        <h3>Доставлені замовлення за квартал</h3>
+        <div class="legend"><span class="lg-cafe">OKKO CAFE</span><span class="lg-mkt">OKKO MARKET</span></div>
+        <svg class="chart" viewBox="0 0 560 320" role="img" aria-label="Доставлені замовлення OKKO CAFE і OKKO MARKET за п’ять кварталів" font-family="Bolt Sans, Inter, system-ui, sans-serif"><line x1="58" y1="286.0" x2="552" y2="286.0" stroke="#E4E7DE"/><text x="50" y="290.0" text-anchor="end" fill="#7A8278" font-size="11">0</text><line x1="58" y1="220.5" x2="552" y2="220.5" stroke="#E4E7DE"/><text x="50" y="224.5" text-anchor="end" fill="#7A8278" font-size="11">4 000</text><line x1="58" y1="155.0" x2="552" y2="155.0" stroke="#E4E7DE"/><text x="50" y="159.0" text-anchor="end" fill="#7A8278" font-size="11">8 000</text><line x1="58" y1="89.5" x2="552" y2="89.5" stroke="#E4E7DE"/><text x="50" y="93.5" text-anchor="end" fill="#7A8278" font-size="11">12 000</text><line x1="58" y1="24.0" x2="552" y2="24.0" stroke="#E4E7DE"/><text x="50" y="28.0" text-anchor="end" fill="#7A8278" font-size="11">16 000</text><rect x="71.8" y="151.0" width="32.6" height="135.0" rx="4" fill="#34D186"/><text x="88.1" y="143.0" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">8 245</text><text x="107.4" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q3 25</text><rect x="170.6" y="135.8" width="32.6" height="150.2" rx="4" fill="#34D186"/><text x="186.9" y="127.8" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">9 174</text><text x="206.2" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q4 25</text><rect x="269.4" y="158.4" width="32.6" height="127.6" rx="4" fill="#34D186"/><text x="285.7" y="150.4" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">7 795</text><text x="305.0" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q1 26</text><rect x="368.2" y="154.5" width="32.6" height="131.5" rx="4" fill="#34D186"/><text x="384.5" y="146.5" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">8 033</text><text x="403.8" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q2 26</text><rect x="467.0" y="91.5" width="32.6" height="194.5" rx="4" fill="#34D186"/><text x="483.3" y="83.5" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">11 879</text><rect x="505.6" y="223.9" width="32.6" height="62.1" rx="4" fill="#16382C"/><text x="521.9" y="215.9" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">3 795</text><text x="502.6" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q3 26</text></svg>
+      </div>
+      <div class="card chart-card">
+        <h3>GMV до знижок за квартал, млн ₴</h3>
+        <div class="legend"><span class="lg-cafe">OKKO CAFE</span><span class="lg-mkt">OKKO MARKET</span></div>
+        <svg class="chart" viewBox="0 0 560 320" role="img" aria-label="GMV до знижок OKKO CAFE і OKKO MARKET, мільйони гривень" font-family="Bolt Sans, Inter, system-ui, sans-serif"><line x1="58" y1="286.0" x2="552" y2="286.0" stroke="#E4E7DE"/><text x="50" y="290.0" text-anchor="end" fill="#7A8278" font-size="11">0</text><line x1="58" y1="220.5" x2="552" y2="220.5" stroke="#E4E7DE"/><text x="50" y="224.5" text-anchor="end" fill="#7A8278" font-size="11">2</text><line x1="58" y1="155.0" x2="552" y2="155.0" stroke="#E4E7DE"/><text x="50" y="159.0" text-anchor="end" fill="#7A8278" font-size="11">4</text><line x1="58" y1="89.5" x2="552" y2="89.5" stroke="#E4E7DE"/><text x="50" y="93.5" text-anchor="end" fill="#7A8278" font-size="11">6</text><line x1="58" y1="24.0" x2="552" y2="24.0" stroke="#E4E7DE"/><text x="50" y="28.0" text-anchor="end" fill="#7A8278" font-size="11">8</text><rect x="71.8" y="164.2" width="32.6" height="121.8" rx="4" fill="#34D186"/><text x="88.1" y="156.2" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">3,72</text><text x="107.4" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q3 25</text><rect x="170.6" y="142.9" width="32.6" height="143.1" rx="4" fill="#34D186"/><text x="186.9" y="134.9" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">4,37</text><text x="206.2" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q4 25</text><rect x="269.4" y="156.6" width="32.6" height="129.4" rx="4" fill="#34D186"/><text x="285.7" y="148.6" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">3,95</text><text x="305.0" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q1 26</text><rect x="368.2" y="150.4" width="32.6" height="135.6" rx="4" fill="#34D186"/><text x="384.5" y="142.4" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">4,14</text><text x="403.8" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q2 26</text><rect x="467.0" y="91.1" width="32.6" height="194.9" rx="4" fill="#34D186"/><text x="483.3" y="83.1" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">5,95</text><rect x="505.6" y="221.5" width="32.6" height="64.5" rx="4" fill="#16382C"/><text x="521.9" y="213.5" text-anchor="middle" fill="#16181A" font-size="12" font-weight="700">1,97</text><text x="502.6" y="308" text-anchor="middle" fill="#5E675F" font-size="12">Q3 26</text></svg>
+      </div>
+    </div>
+    <div class="charts">
+      <div class="card chart-card">
+        <h3>Середній чек за квартал, ₴</h3>
+        <div class="legend"><span class="lg-cafe">OKKO CAFE</span><span class="lg-mkt">OKKO MARKET</span></div>
+        <svg class="chart" viewBox="0 0 1040 360" role="img" aria-label="Середній чек OKKO CAFE і OKKO MARKET, гривні" font-family="Bolt Sans, Inter, system-ui, sans-serif"><line x1="64" y1="320.0" x2="1024" y2="320.0" stroke="#E4E7DE"/><text x="56" y="324.0" text-anchor="end" fill="#7A8278" font-size="13">0</text><line x1="64" y1="247.5" x2="1024" y2="247.5" stroke="#E4E7DE"/><text x="56" y="251.5" text-anchor="end" fill="#7A8278" font-size="13">200</text><line x1="64" y1="175.0" x2="1024" y2="175.0" stroke="#E4E7DE"/><text x="56" y="179.0" text-anchor="end" fill="#7A8278" font-size="13">400</text><line x1="64" y1="102.5" x2="1024" y2="102.5" stroke="#E4E7DE"/><text x="56" y="106.5" text-anchor="end" fill="#7A8278" font-size="13">600</text><line x1="64" y1="30.0" x2="1024" y2="30.0" stroke="#E4E7DE"/><text x="56" y="34.0" text-anchor="end" fill="#7A8278" font-size="13">800</text><rect x="105.0" y="156.5" width="52.0" height="163.5" rx="4" fill="#34D186"/><text x="131.0" y="148.5" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">451</text><text x="160.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Q3 25</text><rect x="297.0" y="147.4" width="52.0" height="172.6" rx="4" fill="#34D186"/><text x="323.0" y="139.4" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">476</text><text x="352.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Q4 25</text><rect x="489.0" y="136.2" width="52.0" height="183.8" rx="4" fill="#34D186"/><text x="515.0" y="128.2" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">507</text><text x="544.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Q1 26</text><rect x="681.0" y="133.3" width="52.0" height="186.7" rx="4" fill="#34D186"/><text x="707.0" y="125.3" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">515</text><text x="736.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Q2 26</text><rect x="873.0" y="138.3" width="52.0" height="181.7" rx="4" fill="#34D186"/><text x="899.0" y="130.3" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">501</text><rect x="931.0" y="132.0" width="52.0" height="188.0" rx="4" fill="#16382C"/><text x="957.0" y="124.0" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">519</text><text x="928.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Q3 26</text></svg>
+      </div>
+      <div class="card chart-card">
+        <h3>Доставлені замовлення помісячно, жовтень 2025 — вересень 2026</h3>
+        <div class="legend"><span class="lg-cafe">OKKO CAFE</span><span class="lg-mkt">OKKO MARKET</span></div>
+        <svg class="chart" viewBox="0 0 1040 360" role="img" aria-label="Доставлені замовлення OKKO CAFE і OKKO MARKET помісячно, жовтень 2025 — вересень 2026" font-family="Bolt Sans, Inter, system-ui, sans-serif"><line x1="64" y1="320.0" x2="1024" y2="320.0" stroke="#E4E7DE"/><text x="56" y="324.0" text-anchor="end" fill="#7A8278" font-size="13">0</text><line x1="64" y1="247.5" x2="1024" y2="247.5" stroke="#E4E7DE"/><text x="56" y="251.5" text-anchor="end" fill="#7A8278" font-size="13">1 500</text><line x1="64" y1="175.0" x2="1024" y2="175.0" stroke="#E4E7DE"/><text x="56" y="179.0" text-anchor="end" fill="#7A8278" font-size="13">3 000</text><line x1="64" y1="102.5" x2="1024" y2="102.5" stroke="#E4E7DE"/><text x="56" y="106.5" text-anchor="end" fill="#7A8278" font-size="13">4 500</text><line x1="64" y1="30.0" x2="1024" y2="30.0" stroke="#E4E7DE"/><text x="56" y="34.0" text-anchor="end" fill="#7A8278" font-size="13">6 000</text><rect x="75.2" y="160.3" width="25.8" height="159.7" rx="4" fill="#34D186"/><text x="88.1" y="152.3" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">3 305</text><text x="104.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Жов 25</text><rect x="155.2" y="171.4" width="25.8" height="148.6" rx="4" fill="#34D186"/><text x="168.1" y="163.4" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">3 075</text><text x="184.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Лис</text><rect x="235.2" y="185.0" width="25.8" height="135.0" rx="4" fill="#34D186"/><text x="248.1" y="177.0" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 794</text><text x="264.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Гру</text><rect x="315.2" y="176.7" width="25.8" height="143.3" rx="4" fill="#34D186"/><text x="328.1" y="168.7" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 964</text><text x="344.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Січ 26</text><rect x="395.2" y="202.5" width="25.8" height="117.5" rx="4" fill="#34D186"/><text x="408.1" y="194.5" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 432</text><text x="424.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Лют</text><rect x="475.2" y="204.0" width="25.8" height="116.0" rx="4" fill="#34D186"/><text x="488.1" y="196.0" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 399</text><text x="504.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Бер</text><rect x="555.2" y="211.8" width="25.8" height="108.2" rx="4" fill="#34D186"/><text x="568.1" y="203.8" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 239</text><text x="584.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Кві</text><rect x="635.2" y="199.8" width="25.8" height="120.2" rx="4" fill="#34D186"/><text x="648.1" y="191.8" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 487</text><text x="664.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Тра</text><rect x="715.2" y="160.2" width="25.8" height="159.8" rx="4" fill="#34D186"/><text x="728.1" y="152.2" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">3 307</text><text x="744.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Чер</text><rect x="795.2" y="121.9" width="25.8" height="198.1" rx="4" fill="#34D186"/><text x="808.1" y="113.9" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">4 099</text><rect x="827.0" y="317.1" width="25.8" height="2.9" rx="4" fill="#16382C"/><text x="839.9" y="309.1" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">59</text><text x="824.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Лип</text><rect x="875.2" y="122.1" width="25.8" height="197.9" rx="4" fill="#34D186"/><text x="888.1" y="114.1" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">4 094</text><rect x="907.0" y="265.2" width="25.8" height="54.8" rx="4" fill="#16382C"/><text x="919.9" y="257.2" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">1 133</text><text x="904.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Сер</text><rect x="955.2" y="141.8" width="25.8" height="178.2" rx="4" fill="#34D186"/><text x="968.1" y="133.8" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">3 686</text><rect x="987.0" y="194.2" width="25.8" height="125.8" rx="4" fill="#16382C"/><text x="999.9" y="186.2" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">2 603</text><text x="984.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Вер 26</text></svg>
+      </div>
+    </div>
+    <div class="insights">
+      <div class="insight">
+        <h3>Квартал тримається на стрибку червня–липня</h3>
+        <p>У кафе замовлення липня були на 23.9% вищі за червень, далі серпень лишився на тому ж рівні (4 094 проти 4 099), вересень знизився на 10.0%. У ресторанів України вересень теж знизився, на 11.0% до серпня. Це спільний рух місяця, не окремий провал кафе.</p>
+      </div>
+      <div class="insight">
+        <h3>Маркет — це розгін, не темп зростання</h3>
+        <p>Липень: 59 замовлень і 3 локації. Серпень: 1 133 і 157. Вересень: 2 603 і 195. Середній чек кварталу 519 ₴ проти 501 ₴ у кафе. Порівнювати +130% серпень–вересень зі сторами платформи некоректно: у Q2 мережа маркету ще не торгувала.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">02</span>Два формати</h2>
+    <p class="sub">Одна мережа, різні стадії</p>
+    <p class="note">Q3 2026 проти Q2 2026 і проти Q3 2025. Точка — локація з хоча б одним доставленим замовленням. Гроші в гривнях, до знижок. Разом за квартал мережа мала 15 674 замовлення і 7,92 млн ₴ на 399 локаціях.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Формат</th><th class="r">Точок</th><th class="r">Замовлення</th><th class="r">до Q2</th><th class="r">р/р</th>
+            <th class="r">GMV, ₴</th><th class="r">до Q2</th><th class="r">Чек, ₴</th><th class="r">до Q2</th>
+            <th class="r">Рейтинг</th><th class="r">Доступність</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tag cafe">OKKO CAFE</td>
+            <td class="r">199</td><td class="r">11 879</td><td class="r up">+47.9%</td><td class="r up">+44.1%</td>
+            <td class="r">5 953 490</td><td class="r up">+43.9%</td><td class="r">501</td><td class="r down">−2.7%</td>
+            <td class="r">4.60</td><td class="r">95.1%</td>
+          </tr>
+          <tr>
+            <td class="tag market">OKKO MARKET</td>
+            <td class="r">200</td><td class="r">3 795</td><td class="r">—</td><td class="r">—</td>
+            <td class="r">1 968 531</td><td class="r">—</td><td class="r">519</td><td class="r">—</td>
+            <td class="r">4.65</td><td class="r">94.6%</td>
+          </tr>
+          <tr>
+            <td>Мережа</td>
+            <td class="r">399</td><td class="r">15 674</td><td class="r">—</td><td class="r">—</td>
+            <td class="r">7 922 021</td><td class="r">—</td><td class="r">505</td><td class="r">—</td>
+            <td class="r">—</td><td class="r">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:12px">Кв/кв і р/р для мережі й маркета не рахуємо: у Q2 торгувало лише кафе, тож сума двох форматів змішала б запуск із діючою базою. Рейтинг і доступність — зважені за квартал, не середнє місяців. Чек кафе рік до року зріс на 11.2% (з 451 ₴).</p>
+  </div>
+</section>
+
+<section id="cities">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">03</span>Міста</h2>
+    <p class="sub">Обсяг зібраний у кількох містах</p>
+    <p class="note">37 міст в обох форматах. Окремі локації не розбираємо: їх близько 400.</p>
+    <div class="hbar-block"><h3>Вісім найбільших міст</h3><p class="scale-note">Замовлення Q3. Шкала — до Києва, 2 619 замовлень кафе. Ці вісім міст дають 70.3% замовлень кафе.</p><div class="legend"><span class="lg-cafe">OKKO CAFE, замовлення</span><span class="lg-mkt">OKKO MARKET, замовлення</span></div><div class="city-row"><div class="city-name">Київ</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:100.0%"></i></div><b>2 619</b></div><div class="track"><div class="meter"><i class="mkt" style="width:41.8%"></i></div><b>1 095</b></div></div></div><div class="city-row"><div class="city-name">Дніпро</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:68.2%"></i></div><b>1 785</b></div><div class="track"><div class="meter"><i class="mkt" style="width:15.2%"></i></div><b>398</b></div></div></div><div class="city-row"><div class="city-name">Харків</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:50.2%"></i></div><b>1 314</b></div><div class="track"><div class="meter"><i class="mkt" style="width:11.1%"></i></div><b>292</b></div></div></div><div class="city-row"><div class="city-name">Львів</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:29.4%"></i></div><b>769</b></div><div class="track"><div class="meter"><i class="mkt" style="width:21.1%"></i></div><b>552</b></div></div></div><div class="city-row"><div class="city-name">Вінниця</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:26.5%"></i></div><b>695</b></div><div class="track"><div class="meter"><i class="mkt" style="width:9.3%"></i></div><b>243</b></div></div></div><div class="city-row"><div class="city-name">Одеса</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:15.6%"></i></div><b>408</b></div><div class="track"><div class="meter"><i class="mkt" style="width:2.0%"></i></div><b>52</b></div></div></div><div class="city-row"><div class="city-name">Запоріжжя</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:15.4%"></i></div><b>404</b></div><div class="track"><div class="meter"><i class="mkt" style="width:3.8%"></i></div><b>99</b></div></div></div><div class="city-row"><div class="city-name">Ужгород</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:13.5%"></i></div><b>353</b></div><div class="track"><div class="meter"><i class="mkt" style="width:4.7%"></i></div><b>122</b></div></div></div></div>
+    <details class="cities"><summary>Решта міст</summary><div class="hbar-block fold"><p class="scale-note">Замовлення Q3. Шкала — до 347 замовлень кафе в Кривому Розі.</p><div class="legend"><span class="lg-cafe">OKKO CAFE, замовлення</span><span class="lg-mkt">OKKO MARKET, замовлення</span></div><div class="city-row"><div class="city-name">Кривий Ріг</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:100.0%"></i></div><b>347</b></div><div class="track"><div class="meter"><i class="mkt" style="width:12.4%"></i></div><b>43</b></div></div></div><div class="city-row"><div class="city-name">Івано-Франківськ</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:84.4%"></i></div><b>293</b></div><div class="track"><div class="meter"><i class="mkt" style="width:51.6%"></i></div><b>179</b></div></div></div><div class="city-row"><div class="city-name">Рівне</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:80.1%"></i></div><b>278</b></div><div class="track"><div class="meter"><i class="mkt" style="width:17.6%"></i></div><b>61</b></div></div></div><div class="city-row"><div class="city-name">Біла Церква</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:58.2%"></i></div><b>202</b></div><div class="track"><div class="meter"><i class="mkt" style="width:14.1%"></i></div><b>49</b></div></div></div><div class="city-row"><div class="city-name">Чернігів</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:56.2%"></i></div><b>195</b></div><div class="track"><div class="meter"><i class="mkt" style="width:6.6%"></i></div><b>23</b></div></div></div><div class="city-row"><div class="city-name">Хмельницький</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:53.9%"></i></div><b>187</b></div><div class="track"><div class="meter"><i class="mkt" style="width:11.0%"></i></div><b>38</b></div></div></div><div class="city-row"><div class="city-name">Бориспіль</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:52.7%"></i></div><b>183</b></div><div class="track"><div class="meter"><i class="mkt" style="width:5.5%"></i></div><b>19</b></div></div></div><div class="city-row"><div class="city-name">Полтава</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:47.8%"></i></div><b>166</b></div><div class="track"><div class="meter"><i class="mkt" style="width:9.2%"></i></div><b>32</b></div></div></div><div class="city-row"><div class="city-name">Ірпінь</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:45.5%"></i></div><b>158</b></div><div class="track"><div class="meter"><i class="mkt" style="width:4.3%"></i></div><b>15</b></div></div></div><div class="city-row"><div class="city-name">Луцьк</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:44.7%"></i></div><b>155</b></div><div class="track"><div class="meter"><i class="mkt" style="width:4.9%"></i></div><b>17</b></div></div></div><div class="city-row"><div class="city-name">Кропивницький</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:35.7%"></i></div><b>124</b></div><div class="track"><div class="meter"><i class="mkt" style="width:6.9%"></i></div><b>24</b></div></div></div><div class="city-row"><div class="city-name">Тернопіль</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:35.2%"></i></div><b>122</b></div><div class="track"><div class="meter"><i class="mkt" style="width:14.1%"></i></div><b>49</b></div></div></div><div class="city-row"><div class="city-name">Черкаси</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:33.7%"></i></div><b>117</b></div><div class="track"><div class="meter"><i class="mkt" style="width:19.6%"></i></div><b>68</b></div></div></div><div class="city-row"><div class="city-name">Житомир</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:32.9%"></i></div><b>114</b></div><div class="track"><div class="meter"><i class="mkt" style="width:16.4%"></i></div><b>57</b></div></div></div><div class="city-row"><div class="city-name">Суми</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:29.4%"></i></div><b>102</b></div><div class="track"><div class="meter"><i class="mkt" style="width:3.7%"></i></div><b>13</b></div></div></div><div class="city-row"><div class="city-name">Кременчук</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:28.5%"></i></div><b>99</b></div><div class="track"><div class="meter"><i class="mkt" style="width:8.4%"></i></div><b>29</b></div></div></div><div class="city-row"><div class="city-name">Мукачево</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:26.8%"></i></div><b>93</b></div><div class="track"><div class="meter"><i class="mkt" style="width:8.6%"></i></div><b>30</b></div></div></div><div class="city-row"><div class="city-name">Миколаїв</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:25.9%"></i></div><b>90</b></div><div class="track"><div class="meter"><i class="mkt" style="width:2.3%"></i></div><b>8</b></div></div></div><div class="city-row"><div class="city-name">Олександрія</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:25.4%"></i></div><b>88</b></div><div class="track"><div class="meter"><i class="mkt" style="width:3.7%"></i></div><b>13</b></div></div></div><div class="city-row"><div class="city-name">Чернівці</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:24.2%"></i></div><b>84</b></div><div class="track"><div class="meter"><i class="mkt" style="width:26.5%"></i></div><b>92</b></div></div></div><div class="city-row"><div class="city-name">Павлоград</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:23.6%"></i></div><b>82</b></div><div class="track"><div class="meter"><i class="mkt" style="width:6.9%"></i></div><b>24</b></div></div></div><div class="city-row"><div class="city-name">Ковель</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:17.9%"></i></div><b>62</b></div><div class="track"><div class="meter"><i class="mkt" style="width:1.7%"></i></div><b>6</b></div></div></div><div class="city-row"><div class="city-name">Вишгород</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:14.1%"></i></div><b>49</b></div><div class="track"><div class="meter"><i class="mkt" style="width:2.9%"></i></div><b>10</b></div></div></div><div class="city-row"><div class="city-name">Бровари</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:12.4%"></i></div><b>43</b></div><div class="track"><div class="meter"><i class="mkt" style="width:4.9%"></i></div><b>17</b></div></div></div><div class="city-row"><div class="city-name">Кам'янець-Подільський</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:10.4%"></i></div><b>36</b></div><div class="track"><div class="meter"><i class="mkt" style="width:2.6%"></i></div><b>9</b></div></div></div><div class="city-row"><div class="city-name">Кам'янське</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:6.1%"></i></div><b>21</b></div><div class="track"><div class="meter"><i class="mkt" style="width:2.9%"></i></div><b>10</b></div></div></div><div class="city-row"><div class="city-name">Трускавець</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:4.9%"></i></div><b>17</b></div><div class="track"><div class="meter"><i class="mkt" style="width:0.9%"></i></div><b>3</b></div></div></div><div class="city-row"><div class="city-name">Коломия</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:4.3%"></i></div><b>15</b></div><div class="track"><div class="meter"><i class="mkt" style="width:0.9%"></i></div><b>3</b></div></div></div><div class="city-row"><div class="city-name">Дрогобич</div><div class="pair-bars"><div class="track"><div class="meter"><i class="cafe" style="width:2.9%"></i></div><b>10</b></div><div class="track"><div class="meter"><i class="mkt" style="width:0.3%"></i></div><b>1</b></div></div></div></div></details>
+    <details class="cities">
+      <summary>Усі 37 міст — таблиця</summary>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Місто</th>
+              <th class="r">Точок кафе</th><th class="r">Кафе Q2</th><th class="r">Кафе Q3</th><th class="r">до Q2</th>
+              <th class="r">Точок маркет</th><th class="r">Маркет Q3</th><th class="r">Прийняття маркет</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Київ</td><td class="r">37</td><td class="r">1 696</td><td class="r">2 619</td><td class="r up">+54.4%</td><td class="r">38</td><td class="r">1 095</td><td class="r">87.0%</td></tr><tr><td>Дніпро</td><td class="r">12</td><td class="r">1 396</td><td class="r">1 785</td><td class="r up">+27.9%</td><td class="r">13</td><td class="r">398</td><td class="r">89.1%</td></tr><tr><td>Харків</td><td class="r">21</td><td class="r">956</td><td class="r">1 314</td><td class="r up">+37.4%</td><td class="r">20</td><td class="r">292</td><td class="r">89.3%</td></tr><tr><td>Львів</td><td class="r">18</td><td class="r">699</td><td class="r">769</td><td class="r up">+10.0%</td><td class="r">18</td><td class="r">552</td><td class="r">91.9%</td></tr><tr><td>Вінниця</td><td class="r">5</td><td class="r">646</td><td class="r">695</td><td class="r up">+7.6%</td><td class="r">5</td><td class="r">243</td><td class="r">92.9%</td></tr><tr><td>Одеса</td><td class="r">10</td><td class="r">297</td><td class="r">408</td><td class="r up">+37.4%</td><td class="r">10</td><td class="r">52</td><td class="r">81.4%</td></tr><tr><td>Запоріжжя</td><td class="r">6</td><td class="r">230</td><td class="r">404</td><td class="r up">+75.7%</td><td class="r">7</td><td class="r">99</td><td class="r">89.9%</td></tr><tr><td>Ужгород</td><td class="r">4</td><td class="r">218</td><td class="r">353</td><td class="r up">+61.9%</td><td class="r">5</td><td class="r">122</td><td class="r">93.7%</td></tr><tr><td>Кривий Ріг</td><td class="r">5</td><td class="r">280</td><td class="r">347</td><td class="r up">+23.9%</td><td class="r">4</td><td class="r">43</td><td class="r">94.0%</td></tr><tr><td>Івано-Франківськ</td><td class="r">7</td><td class="r">203</td><td class="r">293</td><td class="r up">+44.3%</td><td class="r">7</td><td class="r">179</td><td class="r">93.3%</td></tr><tr><td>Рівне</td><td class="r">7</td><td class="r">136</td><td class="r">278</td><td class="r up">+104.4%</td><td class="r">8</td><td class="r">61</td><td class="r">89.6%</td></tr><tr><td>Біла Церква</td><td class="r">6</td><td class="r">162</td><td class="r">202</td><td class="r up">+24.7%</td><td class="r">6</td><td class="r">49</td><td class="r">98.1%</td></tr><tr><td>Чернігів</td><td class="r">4</td><td class="r">78</td><td class="r">195</td><td class="r up">+150.0%</td><td class="r">3</td><td class="r">23</td><td class="r">92.0%</td></tr><tr><td>Хмельницький</td><td class="r">7</td><td class="r">74</td><td class="r">187</td><td class="r up">+152.7%</td><td class="r">8</td><td class="r">38</td><td class="r">82.6%</td></tr><tr><td>Бориспіль</td><td class="r">1</td><td class="r">68</td><td class="r">183</td><td class="r up">+169.1%</td><td class="r">1</td><td class="r">19</td><td class="r">100.0%</td></tr><tr><td>Полтава</td><td class="r">4</td><td class="r">62</td><td class="r">166</td><td class="r up">+167.7%</td><td class="r">4</td><td class="r">32</td><td class="r">94.3%</td></tr><tr><td>Ірпінь</td><td class="r">1</td><td class="r">20</td><td class="r">158</td><td class="r up">+690.0%</td><td class="r">1</td><td class="r">15</td><td class="r">94.1%</td></tr><tr><td>Луцьк</td><td class="r">5</td><td class="r">24</td><td class="r">155</td><td class="r up">+545.8%</td><td class="r">3</td><td class="r">17</td><td class="r">85.7%</td></tr><tr><td>Кропивницький</td><td class="r">7</td><td class="r">62</td><td class="r">124</td><td class="r up">+100.0%</td><td class="r">7</td><td class="r">24</td><td class="r">92.6%</td></tr><tr><td>Тернопіль</td><td class="r">7</td><td class="r">101</td><td class="r">122</td><td class="r up">+20.8%</td><td class="r">7</td><td class="r">49</td><td class="r">89.5%</td></tr><tr><td>Черкаси</td><td class="r">2</td><td class="r">111</td><td class="r">117</td><td class="r up">+5.4%</td><td class="r">2</td><td class="r">68</td><td class="r">76.9%</td></tr><tr><td>Житомир</td><td class="r">2</td><td class="r">102</td><td class="r">114</td><td class="r up">+11.8%</td><td class="r">2</td><td class="r">57</td><td class="r">95.8%</td></tr><tr><td>Суми</td><td class="r">2</td><td class="r">45</td><td class="r">102</td><td class="r up">+126.7%</td><td class="r">2</td><td class="r">13</td><td class="r">100.0%</td></tr><tr><td>Кременчук</td><td class="r">2</td><td class="r">33</td><td class="r">99</td><td class="r up">+200.0%</td><td class="r">2</td><td class="r">29</td><td class="r">97.1%</td></tr><tr><td>Мукачево</td><td class="r">3</td><td class="r">34</td><td class="r">93</td><td class="r up">+173.5%</td><td class="r">3</td><td class="r">30</td><td class="r">87.2%</td></tr><tr><td>Миколаїв</td><td class="r">2</td><td class="r">61</td><td class="r">90</td><td class="r up">+47.5%</td><td class="r">2</td><td class="r">8</td><td class="r">100.0%</td></tr><tr><td>Олександрія</td><td class="r">1</td><td class="r">59</td><td class="r">88</td><td class="r up">+49.2%</td><td class="r">1</td><td class="r">13</td><td class="r">93.3%</td></tr><tr><td>Чернівці</td><td class="r">1</td><td class="r">6</td><td class="r">84</td><td class="r up">+1300.0%</td><td class="r">1</td><td class="r">92</td><td class="r">85.0%</td></tr><tr><td>Павлоград</td><td class="r">1</td><td class="r">66</td><td class="r">82</td><td class="r up">+24.2%</td><td class="r">1</td><td class="r">24</td><td class="r">83.3%</td></tr><tr><td>Ковель</td><td class="r">1</td><td class="r">31</td><td class="r">62</td><td class="r up">+100.0%</td><td class="r">1</td><td class="r">6</td><td class="r">75.0%</td></tr><tr><td>Вишгород</td><td class="r">1</td><td class="r">3</td><td class="r">49</td><td class="r up">+1533.3%</td><td class="r">1</td><td class="r">10</td><td class="r">78.9%</td></tr><tr><td>Бровари</td><td class="r">1</td><td class="r">9</td><td class="r">43</td><td class="r up">+377.8%</td><td class="r">1</td><td class="r">17</td><td class="r">100.0%</td></tr><tr><td>Кам'янець-Подільський</td><td class="r">2</td><td class="r">20</td><td class="r">36</td><td class="r up">+80.0%</td><td class="r">2</td><td class="r">9</td><td class="r">90.0%</td></tr><tr><td>Кам'янське</td><td class="r">1</td><td class="r">25</td><td class="r">21</td><td class="r down">−16.0%</td><td class="r">1</td><td class="r">10</td><td class="r">84.6%</td></tr><tr><td>Трускавець</td><td class="r">1</td><td class="r">12</td><td class="r">17</td><td class="r up">+41.7%</td><td class="r">1</td><td class="r">3</td><td class="r">100.0%</td></tr><tr><td>Коломия</td><td class="r">1</td><td class="r">8</td><td class="r">15</td><td class="r up">+87.5%</td><td class="r">1</td><td class="r">3</td><td class="r">100.0%</td></tr><tr><td>Дрогобич</td><td class="r">1</td><td class="r">0</td><td class="r">10</td><td class="r">—</td><td class="r">1</td><td class="r">1</td><td class="r">100.0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <div class="insights">
+      <div class="insight">
+        <h3>Кафе виросло майже в кожному місті з базою</h3>
+        <p>Київ, Дніпро й Харків — 48% замовлень кафе. Найшвидше з великої бази виросли Київ (+54%) і Запоріжжя (+76%). Львів і Вінниця теж у плюсі, але ближче до темпу ресторанів країни, ніж до решти мережі.</p>
+      </div>
+      <div class="insight">
+        <h3>Доступність просіла в кількох містах</h3>
+        <p>У кафе мережа на 95.1%. Помітно нижче при живому обсязі: Мукачево 73.7% (93 замовлення), Миколаїв 74.7% (90), Ужгород 87.7% (353), Запоріжжя 89.0% (404). У маркеті та сама картина в Мукачевому — 72.9% при 30 замовленнях.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="promo">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">04</span>Промо</h2>
+    <p class="sub">Співфінансування кафе трималось на липні</p>
+    <p class="note">Інвестиція в промо замовлень OKKO. Знижка / GMV — сума знижки до GMV до знижок. Це не ефективність кампанії і не причина зростання: цифри збігаються в часі, причинність з них не випливає.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th></th><th class="r">CAFE Q3</th><th class="r">до Q2</th><th class="r">MARKET Q3</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Інвестиція Bolt, ₴</td><td class="r">531 566</td><td class="r">+43.7%</td><td class="r">67 152</td></tr>
+          <tr><td>Інвестиція OKKO, ₴</td><td class="r">319 410</td><td class="r">не було</td><td class="r">42 300</td></tr>
+          <tr><td>Знижка разом, ₴</td><td class="r">850 977</td><td class="r">+130.0%</td><td class="r">109 452</td></tr>
+          <tr><td>Знижка / GMV</td><td class="r">14.3%</td><td class="r">+5.4 п.п.</td><td class="r">5.6%</td></tr>
+          <tr><td>Частка промо-замовлень</td><td class="r">58.5%</td><td class="r">+20.9 п.п.</td><td class="r">26.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card chart-card" style="margin-top:16px">
+      <h3>Інвестиція в промо кафе за місяцями, тис. ₴</h3>
+      <div class="legend"><span class="lg-bolt">Bolt</span><span class="lg-mkt">OKKO CAFE</span></div>
+      <svg class="chart" viewBox="0 0 1040 360" role="img" aria-label="Інвестиція в промо OKKO CAFE за місяцями третього кварталу, тисячі гривень" font-family="Bolt Sans, Inter, system-ui, sans-serif"><line x1="64" y1="320.0" x2="1024" y2="320.0" stroke="#E4E7DE"/><text x="56" y="324.0" text-anchor="end" fill="#7A8278" font-size="13">0</text><line x1="64" y1="247.5" x2="1024" y2="247.5" stroke="#E4E7DE"/><text x="56" y="251.5" text-anchor="end" fill="#7A8278" font-size="13">80</text><line x1="64" y1="175.0" x2="1024" y2="175.0" stroke="#E4E7DE"/><text x="56" y="179.0" text-anchor="end" fill="#7A8278" font-size="13">160</text><line x1="64" y1="102.5" x2="1024" y2="102.5" stroke="#E4E7DE"/><text x="56" y="106.5" text-anchor="end" fill="#7A8278" font-size="13">240</text><line x1="64" y1="30.0" x2="1024" y2="30.0" stroke="#E4E7DE"/><text x="56" y="34.0" text-anchor="end" fill="#7A8278" font-size="13">320</text><rect x="169.0" y="196.8" width="52.0" height="123.2" rx="4" fill="#34D186"/><text x="195.0" y="188.8" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">136</text><rect x="227.0" y="108.8" width="52.0" height="211.2" rx="4" fill="#16382C"/><text x="253.0" y="100.8" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">233</text><text x="224.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Липень</text><rect x="489.0" y="110.7" width="52.0" height="209.3" rx="4" fill="#34D186"/><text x="515.0" y="102.7" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">231</text><rect x="547.0" y="277.4" width="52.0" height="42.6" rx="4" fill="#16382C"/><text x="573.0" y="269.4" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">47</text><text x="544.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Серпень</text><rect x="809.0" y="171.4" width="52.0" height="148.6" rx="4" fill="#34D186"/><text x="835.0" y="163.4" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">164</text><rect x="867.0" y="283.8" width="52.0" height="36.2" rx="4" fill="#16382C"/><text x="893.0" y="275.8" text-anchor="middle" fill="#16181A" font-size="14" font-weight="700">40</text><text x="864.0" y="348" text-anchor="middle" fill="#5E675F" font-size="14">Вересень</text></svg>
+      <p class="note" style="margin:8px 2px 12px">73% партнерської суми кварталу припадає на липень.</p>
+    </div>
+    <div class="insights">
+      <div class="insight">
+        <h3>73% грошей кафе пішли в липень</h3>
+        <p>OKKO вклав у кафе 232 843 ₴ у липні, 46 813 ₴ у серпні і 39 755 ₴ у вересні. Разом 319 410 ₴. На Q4 беріть 40–47 тис. ₴ на місяць — рівень серпня і вересня. Середнє за квартал повторить липень.</p>
+      </div>
+      <div class="insight">
+        <h3>Знижка маркета 5.6%, кафе 14.3%</h3>
+        <p>Знижка маркета — 5.6% від GMV, у кафе — 14.3%. Промо було в 26.9% замовлень маркета і в 58.5% кафе. Свої 42 300 ₴ OKKO розклав по місяцях запуску, окремого піка немає.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">05</span>Клієнти і Bolt Plus</h2>
+    <p class="sub">Кафе частіше повертає, маркет ще на першому замовленні</p>
+    <p class="note">Клієнт — людина з доставленим замовленням платформної доставки. Новий — перше таке замовлення цього формату припало на квартал. У цьому зрізі у кафе Q3 є 11 630 замовлень, у місячному підсумку — 11 879. Частота порахована від 11 630, щоб не змішувати два знаменники.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Формат</th><th>Період</th><th class="r">Клієнти</th><th class="r">Нові</th><th class="r">Частка нових</th><th class="r">Повторні</th><th class="r">Частота</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tag cafe">OKKO CAFE</td><td>Q3 2025</td><td class="r">5 177</td><td class="r">3 565</td><td class="r">68.9%</td><td class="r">1 612</td><td class="r">1.59</td></tr>
+          <tr><td class="tag cafe">OKKO CAFE</td><td>Q2 2026</td><td class="r">4 665</td><td class="r">2 925</td><td class="r">62.7%</td><td class="r">1 740</td><td class="r">1.69</td></tr>
+          <tr><td class="tag cafe">OKKO CAFE</td><td>Q3 2026</td><td class="r">6 410</td><td class="r">4 184</td><td class="r">65.3%</td><td class="r">2 226</td><td class="r">1.81</td></tr>
+          <tr><td class="tag market">OKKO MARKET</td><td>Q3 2026</td><td class="r">2 471</td><td class="r">2 471</td><td class="r">100%</td><td class="r">0</td><td class="r">1.49</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insights">
+      <div class="insight">
+        <h3>База кафе і ширша, і щільніша</h3>
+        <p>6 410 клієнтів, +37.4% до Q2 і +23.8% рік до року. Частота виросла з 1.59 до 1.81 замовлення на клієнта за квартал. Частка нових (65%) нижча, ніж рік тому (69%): приріст уже не тільки перші замовлення.</p>
+      </div>
+      <div class="insight">
+        <h3>Bolt Plus дає шосту частину GMV кафе</h3>
+        <p>У кафе Bolt Plus — 969 194 ₴, 16.3% GMV кварталу, проти 8.8% рік тому і 15.9% у Q2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ops">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">06</span>Сервіс</h2>
+    <p class="sub">Розрив із ринком — у прийнятті маркету і в доступності кафе</p>
+    <p class="note">Порівняння з ресторанами України для кафе і зі сторами України для маркету, Q3 2026. Для відсотків різниця — у відсоткових пунктах. Час — у хвилинах, рейтинг — у балах. Зелений — рух у кращий бік, червоний — у гірший.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Показник</th>
+            <th class="r">CAFE</th><th class="r">до Q2</th><th class="r">Ресторани</th><th class="r">Розрив</th>
+            <th class="r">MARKET</th><th class="r">Стори</th><th class="r">Розрив</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Доступність</td><td class="r">95.1%</td><td class="r up">+1.1 п.п.</td><td class="r">98.8%</td><td class="r down">−3.7 п.п.</td><td class="r">94.6%</td><td class="r">97.5%</td><td class="r down">−2.9 п.п.</td></tr>
+          <tr><td>Прийняття</td><td class="r">97.3%</td><td class="r up">+0.8 п.п.</td><td class="r">98.6%</td><td class="r down">−1.3 п.п.</td><td class="r">89.2%</td><td class="r">96.5%</td><td class="r down">−7.3 п.п.</td></tr>
+          <tr><td>Скасування</td><td class="r">7.7%</td><td class="r down">+0.8 п.п.</td><td class="r">4.6%</td><td class="r down">+3.1 п.п.</td><td class="r">20.7%</td><td class="r">8.1%</td><td class="r down">+12.6 п.п.</td></tr>
+          <tr><td>Проблемні з вини закладу</td><td class="r">7.0%</td><td class="r up">−1.4 п.п.</td><td class="r">3.9%</td><td class="r down">+3.0 п.п.</td><td class="r">16.1%</td><td class="r">9.2%</td><td class="r down">+6.9 п.п.</td></tr>
+          <tr><td>Пізні доставки</td><td class="r">19.6%</td><td class="r up">−1.4 п.п.</td><td class="r">17.2%</td><td class="r down">+2.4 п.п.</td><td class="r">18.1%</td><td class="r">16.7%</td><td class="r down">+1.4 п.п.</td></tr>
+          <tr><td>Повний цикл</td><td class="r">32.5 хв</td><td class="r up">−1.2 хв</td><td class="r">33.7 хв</td><td class="r up">−1.2 хв</td><td class="r">32.7 хв</td><td class="r">31.1 хв</td><td class="r down">+1.6 хв</td></tr>
+          <tr><td>Приготування</td><td class="r">13.1 хв</td><td class="r up">−1.4 хв</td><td class="r">—</td><td class="r">—</td><td class="r">11.6 хв</td><td class="r">—</td><td class="r">—</td></tr>
+          <tr><td>Рейтинг</td><td class="r">4.60</td><td class="r">−0.02</td><td class="r">4.64</td><td class="r">−0.04</td><td class="r">4.65</td><td class="r">4.73</td><td class="r">−0.08</td></tr>
+          <tr><td>Повернення коштів</td><td class="r">2.46%</td><td class="r">−0.05 п.п.</td><td class="r">1.90%</td><td class="r down">+0.56 п.п.</td><td class="r">2.24%</td><td class="r">1.15%</td><td class="r down">+1.09 п.п.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insights">
+      <div class="insight">
+        <h3>Вересень кафе — це переважно тривоги</h3>
+        <p>Скасування кафе у вересні 12.3% проти 4.9% у серпні. У ресторанів України теж виросло, з 4.4% до 5.9%. Із 332 скасувань, віднесених на заклад, 245 — повітряна тривога. Немає товару: 56 проти 37 у серпні. Закрито поза графіком: 11, як і в серпні. Квартальні 7.7% не варто читати як злам кухні.</p>
+      </div>
+      <div class="insight">
+        <h3>Маркет у вересні не встигав приймати</h3>
+        <p>Скасування 24.1% проти 10.1% у сторів України того ж місяця. Тривоги — 154 із 282 скасувань з вини закладу. Окремо від них: 303 замовлення не прийнято і 95 скасовано через відсутність товару. У серпні не прийнято було 46. Обсяг виріс, прийняття — ні.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:14px">Доступність кафе за рік: січень 70.3% (ресторани України того місяця 86.4%), березень уже 93.1%, Q3 — 95.1%. Провал зими відіграний, розрив у 3.7 п.п. з ресторанами лишився. Повний цикл кафе коротший за ресторани на 1.2 хв. Складові часу кур’єра не додаються в один ланцюжок, тому в таблиці їх немає.</p>
+  </div>
+</section>
+
+<section id="funnel">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">07</span>Воронка</h2>
+    <p class="sub">Трафік кафе виріс, конверсія меню — ні</p>
+    <p class="note">Показ → меню і меню → замовлення — від сесій локацій. Меню → кошик — зважений показник платформи. Сесії різних локацій однієї людини додаються, це не унікальні люди. Q2 наразі є лише по кафе: MARKET стартував у липні, а по ресторанах і магазинах Bolt Food у вигрузці тільки Q3.</p>
+    <div class="funnel">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Показ → меню</h3>
+        <table class="fx">
+          <thead><tr><th>Група</th><th class="r">Q2</th><th class="r q3">Q3</th><th class="r">PoP</th></tr></thead>
+          <tbody>
+            <tr><td class="tag cafe">OKKO CAFE</td><td class="r">4.21%</td><td class="r q3">4.44%</td><td class="r up">+0.23 п.п.</td></tr>
+            <tr><td class="tag market">OKKO MARKET</td><td class="r na">—</td><td class="r q3">3.55%</td><td class="r na">старт у Q3</td></tr>
+            <tr class="bmk-top"><td class="bmk">Ресторани Bolt Food</td><td class="r na">—</td><td class="r q3">8.31%</td><td class="r na">—</td></tr>
+            <tr><td class="bmk">Магазини Bolt Food</td><td class="r na">—</td><td class="r q3">4.92%</td><td class="r na">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Меню → кошик</h3>
+        <table class="fx">
+          <thead><tr><th>Група</th><th class="r">Q2</th><th class="r q3">Q3</th><th class="r">PoP</th></tr></thead>
+          <tbody>
+            <tr><td class="tag cafe">OKKO CAFE</td><td class="r">29.5%</td><td class="r q3">26.9%</td><td class="r down">−2.6 п.п.</td></tr>
+            <tr><td class="tag market">OKKO MARKET</td><td class="r na">—</td><td class="r q3">27.0%</td><td class="r na">старт у Q3</td></tr>
+            <tr class="bmk-top"><td class="bmk">Ресторани Bolt Food</td><td class="r na">—</td><td class="r q3">32.9%</td><td class="r na">—</td></tr>
+            <tr><td class="bmk">Магазини Bolt Food</td><td class="r na">—</td><td class="r q3">34.8%</td><td class="r na">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Меню → замовлення</h3>
+        <table class="fx">
+          <thead><tr><th>Група</th><th class="r">Q2</th><th class="r q3">Q3</th><th class="r">PoP</th></tr></thead>
+          <tbody>
+            <tr><td class="tag cafe">OKKO CAFE</td><td class="r">16.8%</td><td class="r q3">15.4%</td><td class="r down">−1.4 п.п.</td></tr>
+            <tr><td class="tag market">OKKO MARKET</td><td class="r na">—</td><td class="r q3">15.2%</td><td class="r na">старт у Q3</td></tr>
+            <tr class="bmk-top"><td class="bmk">Ресторани Bolt Food</td><td class="r na">—</td><td class="r q3">21.4%</td><td class="r na">—</td></tr>
+            <tr><td class="bmk">Магазини Bolt Food</td><td class="r na">—</td><td class="r q3">21.3%</td><td class="r na">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="insights">
+      <div class="insight">
+        <h3>Кафе втрачає крок після відкриття меню</h3>
+        <p>Перегляди меню кафе виросли з 47 331 у Q2 до 75 982 у Q3 (+60.5%), замовлення — на 47.9%. Розрив із ресторанами на кроці «меню → кошик» — 6.0 п.п., на «меню → замовлення» — 6.0 п.п. Фото й описи закриті на 99.9%, тож дірка не в порожніх картках.</p>
+      </div>
+      <div class="insight">
+        <h3>Маркет програє сторам на кожному кроці</h3>
+        <p>Показ → меню 3.55% проти 4.92%. Меню → кошик 27.0% проти 34.8%. Меню → замовлення 15.2% проти 21.3%. Для формату на третьому місяці це очікувано тісно пов’язано з прийняттям і залишками, а не лише з вітриною.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">08</span>Наступний квартал</h2>
+    <p class="sub">Три рішення, які стоять на цих цифрах</p>
+    <p class="note">Попереднього спільного QBR із зафіксованим планом не було, тому статусу старих задач тут немає. Ефект у замовленнях не обіцяємо: його з цих даних не вивести.</p>
+    <div class="actions">
+      <article class="action">
+        <div class="num">01</div>
+        <div>
+          <h3>Маркет: прийняття і залишки, перш ніж додавати знижку</h3>
+          <p>У вересні 303 замовлення не прийнято, 95 скасовано бо не було товару. Прийняття кварталу 89.2% проти 96.5% у сторів України. Найбільший обсяг — Київ, 1 095 замовлень при прийнятті 87.0%. Дія: щоденний контроль прийняття і відсутніх позицій на час розгону, знижку не піднімати до кафешних 14%, поки цей розрив не звузиться.</p>
+        </div>
+      </article>
+      <article class="action">
+        <div class="num">02</div>
+        <div>
+          <h3>Кафе: меню і стійке промо, не разовий липень</h3>
+          <p>Конверсія меню в кошик знизилась на 2.6 п.п. при покритті карток 99.9%. Партнерські 319 410 ₴ на 73% зібрані в липні. Дія: розібрати структуру меню і ціну хітових позицій; на Q4 зафіксувати щомісячний рівень співфінансування ближче до серпня–вересня (40–47 тис. ₴), а не до липня.</p>
+        </div>
+      </article>
+      <article class="action">
+        <div class="num">03</div>
+        <div>
+          <h3>Доступність кафе в окремих містах</h3>
+          <p>Кафе вже відіграло зимове падіння до 70%, але 95.1% проти 98.8% у ресторанів. Окремо Мукачево і Миколаїв нижче 75% при живих замовленнях. Дія: підтягнути доступність у цих містах до рівня мережі.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Період звіту — 1 липня – 30 вересня 2026. Порівняння кафе — з 1 квітня – 30 червня 2026 і з 1 липня – 30 вересня 2025.
+    Платформа — агреговані дані Bolt Food по Україні за ті самі періоди: ресторани для OKKO CAFE, стори для OKKO MARKET, загальна динаміка замовлень де вказано окремо.
+    Гроші OKKO — гривні, GMV до знижок. Видалені локації виключені. Станом на підготовку звіту в каталозі 424 локації без видалених, 399 мали доставлене замовлення в кварталі.
+  </div>
+</footer>
+</body>
+</html>
