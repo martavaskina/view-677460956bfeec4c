@@ -104,6 +104,15 @@
   .scroll th, .scroll td { padding-left:14px; padding-right:14px; }
   .tag { font-size:12px; font-weight:700; letter-spacing:.04em; }
   .tag.cafe { color:var(--bolt-ink); } .tag.market { color:var(--market); }
+  .kpis { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin:4px 0 18px; }
+  .kpi { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px 16px 12px; }
+  .kpi.on { border:2px solid var(--bolt); background:rgba(52,209,134,.10); }
+  .kpi .k { font-size:12px; font-weight:650; color:var(--muted); }
+  .kpi .v { font-size:28px; font-weight:650; letter-spacing:-.03em; margin-top:4px; line-height:1.1; }
+  .kpi.on .v { color:var(--bolt-ink); }
+  .kpi .s { font-size:13px; margin-top:4px; color:var(--muted); }
+  .kpi .s.up { color:var(--up); }
+  .kpi .s.down { color:var(--down); }
   .insights { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:22px; }
   .insight { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; }
   .insight h3 { margin:0 0 6px; font-size:16px; letter-spacing:-.01em; }
@@ -165,6 +174,7 @@
     .city-row { grid-template-columns:112px 1fr; }
     .card, .scroll { max-width:100%; min-width:0; }
     .hero-grid, .split, .insights, .funnel, .charts-pair { grid-template-columns:1fr; }
+    .kpis { grid-template-columns:1fr 1fr; }
     .nav { display:none; }
     .action { grid-template-columns:48px 1fr; }
     section { padding:48px 0; }
@@ -423,14 +433,21 @@
 <section id="clients">
   <div class="wrap">
     <h2 class="sec"><span class="num">05</span>Клієнти і Bolt Plus</h2>
-    <p class="sub">У кафе більше людей, і кожен замовляє частіше</p>
-    <h3 style="margin:18px 0 10px;font-size:20px;letter-spacing:-.02em;font-weight:650">Хто замовляв у кварталі</h3>
-    <p class="note">Люди за квартал — усі, у кого було хоча б одне доставлене замовлення цього формату. Перше замовлення — до кварталу людина в цьому форматі не замовляла. Уже були — замовляли цей формат раніше і повернулись у цьому кварталі. Частка рахується від людей кварталу, не від бази попереднього. Замовлень на людину — теж за квартал. У кафе Q3 їх 11 630; у місячному підсумку замовлень 11 879.</p>
+    <p class="sub">Q3 2026 проти Q2 2026 і Q3 2025</p>
+    <h3 style="margin:18px 0 8px;font-size:20px;letter-spacing:-.02em;font-weight:650">Клієнтська база <span style="font-weight:500;color:#5E675F;font-size:14px">OKKO CAFE, Q3 2026</span></h3>
+    <p class="note">«Унікальні» — клієнти з доставкою цього формату за квартал. «Нові» — уперше замовили саме в цьому форматі. «Повторні» — уже замовляли його раніше. «Частка повторних» — повторні / унікальні. «Частота» — замовлень на клієнта за квартал.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="k">Унікальні</div><div class="v">6 410</div><div class="s up">+37.4% до Q2</div></div>
+      <div class="kpi"><div class="k">Нові</div><div class="v">4 184</div><div class="s up">+43.0% до Q2</div></div>
+      <div class="kpi"><div class="k">Повторні</div><div class="v">2 226</div><div class="s up">+27.9% до Q2</div></div>
+      <div class="kpi on"><div class="k">Частка повторних</div><div class="v">34.7%</div><div class="s down">−2.6 п.п. до Q2</div></div>
+      <div class="kpi"><div class="k">Частота</div><div class="v">1.81</div><div class="s up">1.69 у Q2</div></div>
+    </div>
     <div class="scroll">
-      <table style="min-width:980px">
+      <table>
         <thead>
           <tr>
-            <th>Формат</th><th>Період</th><th class="r">Люди за квартал</th><th class="r">Перше замовлення формату</th><th class="r">Уже були клієнтами формату</th><th class="r">Частка тих, хто вже був</th><th class="r">Замовлень на людину</th>
+            <th>Формат</th><th>Період</th><th class="r">Унікальні</th><th class="r">Нові</th><th class="r">Повторні</th><th class="r">Частка повторних</th><th class="r">Частота</th>
           </tr>
         </thead>
         <tbody>
@@ -441,13 +458,13 @@
         </tbody>
       </table>
     </div>
-    <h3 style="margin:28px 0 10px;font-size:20px;letter-spacing:-.02em;font-weight:650">Bolt Plus у кафе</h3>
-    <p class="note">Частка — від усіх доставлених замовлень і від GMV кафе. Середній чек — GMV до знижок на одне замовлення.</p>
+    <h3 style="margin:28px 0 8px;font-size:20px;letter-spacing:-.02em;font-weight:650">Bolt Plus <span style="font-weight:500;color:#5E675F;font-size:14px">OKKO CAFE</span></h3>
+    <p class="note">«Частка замовлень» і «частка GMV» — від усіх замовлень і GMV кафе. «Чек» — GMV до знижок на замовлення.</p>
     <div class="scroll">
       <table>
         <thead>
           <tr>
-            <th>Період</th><th class="r">Замовлення</th><th class="r">Частка замовлень</th><th class="r">GMV, ₴</th><th class="r">Частка GMV</th><th class="r">Чек підписки, ₴</th><th class="r">Чек кафе, ₴</th>
+            <th>Період</th><th class="r">Замовлення</th><th class="r">Частка замовлень</th><th class="r">GMV, ₴</th><th class="r">Частка GMV</th><th class="r">Чек Plus, ₴</th><th class="r">Чек кафе, ₴</th>
           </tr>
         </thead>
         <tbody>
@@ -459,12 +476,12 @@
     </div>
     <div class="insights">
       <div class="insight">
-        <h3>Більше людей, і частіше</h3>
-        <p>6 410 людей у кафе за Q3, +37.4% до Q2 і +23.8% рік до року. Замовлень на людину 1.81 проти 1.69 у Q2 і 1.59 рік тому. Тих, хто вже замовляв кафе до цього кварталу, 2 226 — 34.7% людей Q3. Рік тому було 31.1%. До Q2 частка була вища, 37.3%: нових у цьому кварталі додалось більше, ніж тих, хто повернувся.</p>
+        <h3>Повторні 1 740 → 2 226. Частка 37.3% → 34.7%</h3>
+        <p>Унікальні кафе 4 665 → 6 410 (+37.4% до Q2, +23.8% рік до року). Нові 2 925 → 4 184. Частота 1.69 → 1.81. Рік тому частка повторних була 31.1%.</p>
       </div>
       <div class="insight">
-        <h3>Підписка — шоста частина і замовлень, і грошей</h3>
-        <p>У Q3 Bolt Plus — 1 869 замовлень кафе, 15.7%, і 969 194 ₴, 16.3% GMV. Рік тому було 9.0% замовлень і 8.8% GMV. До Q2 частка замовлень та сама, 15.7%, частка грошей виросла з 15.9% до 16.3%. Чек підписки 518.6 ₴ проти 501.2 ₴ по всіх замовленнях кафе.</p>
+        <h3>Bolt Plus: 9.0% → 15.7% замовлень</h3>
+        <p>Частка GMV 8.8% → 16.3%. У Q3 це 1 869 замовлень і 969 194 ₴. До Q2 частка замовлень та сама, 15.7%, частка GMV 15.9% → 16.3%. Чек Plus 518.6 ₴, чек кафе 501.2 ₴.</p>
       </div>
     </div>
   </div>
