@@ -157,6 +157,20 @@
   details.cities[open] summary::before { content:"▾"; }
   details.cities .scroll { border:0; border-radius:0; border-top:1px solid var(--line); }
   .hbar-block.fold { border:0; border-radius:0; margin:0; padding:14px 20px 8px; border-top:1px solid var(--line); }
+  .action.cafe { border-left:4px solid #34D186; }
+  .action.market { border-left:4px solid #16382C; }
+  .action.both { border-left:4px solid #34D186; }
+  .action.cafe .num { color:#34D186; }
+  .action.market .num { color:#16382C; }
+  .who-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .who {
+    display:inline-flex; align-items:center;
+    font-size:11px; font-weight:750; letter-spacing:.08em; text-transform:uppercase;
+    padding:3px 8px; border-radius:999px;
+  }
+  .who.cafe { color:#12351F; background:rgba(52,209,134,.35); }
+  .who.market { color:#F4F6F0; background:#16382C; }
+  .who.shared { color:#5E675F; background:#F3F4EF; border:1px solid var(--line); letter-spacing:.06em; }
   .action h3 { margin:0 0 4px; font-size:18px; }
   .action p { margin:0; color:#2C332E; font-size:14.5px; }
   .next-group {
@@ -656,53 +670,47 @@
 <section id="next">
   <div class="wrap">
     <h2 class="sec"><span class="num">08</span>Наступні кроки</h2>
-    <p class="sub">Окремо для кафе і маркету</p>
-    <p class="note">Попереднього спільного QBR із зафіксованим планом не було, тому статусу старих задач тут немає. Ефект у замовленнях не обіцяємо: його з цих даних не вивести.</p>
-    <h3 class="next-group cafe">OKKO CAFE</h3>
+    <p class="sub">Один список. Закриття точок — спільний крок</p>
+    <p class="note">Попереднього спільного QBR із зафіксованим планом не було, тому статусу старих задач тут немає. Ефект у замовленнях не обіцяємо: його з цих даних не вивести. Зелена мітка — кафе, темна — маркет.</p>
     <div class="actions">
-      <article class="action">
+      <article class="action both">
         <div class="num">01</div>
         <div>
+          <div class="who-row"><span class="who shared">Спільний крок</span><span class="who cafe">OKKO CAFE</span><span class="who market">OKKO MARKET</span></div>
+          <h3>Самостійне закриття і відкриття точок</h3>
+          <p>У вересні кафе: 295 скасувань через тривогу і 13 «закрито поза графіком». Маркет: 179 через тривогу, 28 «закрито поза графіком» і 323 неприйнятих. Дія: дати персоналу на заправці самостійно ховати точку під тривогу, технічну паузу чи кінець зміни без ескалації в підтримку. Один функціонал на обидва формати.</p>
+        </div>
+      </article>
+      <article class="action cafe">
+        <div class="num">02</div>
+        <div>
+          <div class="who-row"><span class="who cafe">OKKO CAFE</span></div>
           <h3>Меню і стійке промо, не разовий липень</h3>
           <p>Конверсія меню в кошик знизилась на 2.6 п.п. при покритті карток 99.9%. Партнерські 319 410 ₴ на 73% зібрані в липні. Дія: розібрати структуру меню і ціну хітових позицій; на Q4 зафіксувати щомісячний рівень співфінансування ближче до серпня–вересня (40–47 тис. ₴), а не до липня.</p>
         </div>
       </article>
-      <article class="action">
-        <div class="num">02</div>
+      <article class="action cafe">
+        <div class="num">03</div>
         <div>
+          <div class="who-row"><span class="who cafe">OKKO CAFE</span></div>
           <h3>Доступність в окремих містах</h3>
           <p>Кафе вже відіграло зимове падіння до 70%, але 95.1% проти 98.8% у ресторанів. Окремо Мукачево і Миколаїв нижче 75% при живих замовленнях. Дія: підтягнути доступність у цих містах до рівня мережі.</p>
         </div>
       </article>
-      <article class="action">
-        <div class="num">03</div>
+      <article class="action market">
+        <div class="num">04</div>
         <div>
-          <h3>Самостійне закриття і відкриття точок</h3>
-          <p>У вересні кафе: 295 скасувань через тривогу і 13 «закрито поза графіком». Дія: дати персоналу на заправці самостійно ховати точку під тривогу, технічну паузу чи кінець зміни без ескалації в підтримку.</p>
-        </div>
-      </article>
-    </div>
-    <h3 class="next-group market">OKKO MARKET</h3>
-    <div class="actions">
-      <article class="action">
-        <div class="num">01</div>
-        <div>
+          <div class="who-row"><span class="who market">OKKO MARKET</span></div>
           <h3>Прийняття і залишки, перш ніж додавати знижку</h3>
           <p>У вересні 323 замовлення не прийнято, 95 скасовано бо не було товару. Прийняття кварталу 89.2% проти 96.5% у сторів України. Найбільший обсяг — Київ, 1 095 замовлень при прийнятті 87.0%. Дія: щоденний контроль прийняття і відсутніх позицій на час розгону, знижку не піднімати до кафешних 14%, поки цей розрив не звузиться.</p>
         </div>
       </article>
-      <article class="action">
-        <div class="num">02</div>
+      <article class="action market">
+        <div class="num">05</div>
         <div>
+          <div class="who-row"><span class="who market">OKKO MARKET</span></div>
           <h3>Неприйняті замовлення при автоприйнятті</h3>
           <p>У жовтні маркет не прийняв 373 замовлення — 10.4% створених, прийняття 86.4%. У партнера вже налаштоване автоприйняття, тож цей рівень не пояснюється ручним відхиленням. Дія: розібрати, чому замовлення все одно лишаються неприйнятими — зміна, додаток, графік, зв’язок, дублі точок.</p>
-        </div>
-      </article>
-      <article class="action">
-        <div class="num">03</div>
-        <div>
-          <h3>Самостійне закриття і відкриття точок</h3>
-          <p>У вересні маркет: 179 скасувань через тривогу, 28 «закрито поза графіком» і 323 неприйнятих. Дія: той самий функціонал самостійного закриття, щоб персонал ховав точку під тривогу чи кінець зміни і не зривав прийняття.</p>
         </div>
       </article>
     </div>
